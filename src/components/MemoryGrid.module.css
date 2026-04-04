@@ -1,0 +1,105 @@
+.grid {
+  display: grid;
+  gap: 10px;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+/* Scene wrapper provides the 3D perspective */
+.cardScene {
+  aspect-ratio: 3 / 4;
+  perspective: 600px;
+  cursor: pointer;
+}
+
+/* The card itself rotates */
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+}
+
+.cardFlipped {
+  transform: rotateY(180deg);
+}
+
+/* Shared face styles */
+.cardFront,
+.cardBack {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Face-down: default background */
+.cardFront {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 6px,
+      rgba(255, 255, 255, 0.018) 6px,
+      rgba(255, 255, 255, 0.018) 7px
+    );
+}
+
+.cardFront:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Pokeball icon on the face-down side */
+.pokeball {
+  width: 38%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(230, 57, 70, 0.35) 0%,
+      rgba(230, 57, 70, 0.35) 48%,
+      rgba(255, 255, 255, 0.12) 48%,
+      rgba(255, 255, 255, 0.12) 52%,
+      rgba(255, 255, 255, 0.06) 52%,
+      rgba(255, 255, 255, 0.06) 100%
+    );
+  box-shadow: 0 0 12px rgba(230, 57, 70, 0.15);
+}
+
+/* Face-up: image + name */
+.cardBack {
+  transform: rotateY(180deg);
+  background: rgba(8, 14, 28, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
+  gap: 0.4rem;
+}
+
+.image {
+  width: 75%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(100, 160, 255, 0.25));
+}
+
+.name {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  text-align: center;
+  word-break: break-word;
+}

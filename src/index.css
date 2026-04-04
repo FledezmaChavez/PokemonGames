@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --bg:          #06090f;
+  --glass:       rgba(12, 18, 34, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.075);
+  --text:        #dce8f8;
+  --text-muted:  rgba(180, 205, 235, 0.4);
+  --red:         #e63946;
+  --red-glow:    rgba(230, 57, 70, 0.38);
+  --font:        'Chakra Petch', sans-serif;
+  --mono:        'Space Mono', monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 110% 55% at 50% -5%,  rgba(28, 58, 120, 0.38) 0%, transparent 68%),
+    radial-gradient(ellipse  60% 45% at 85%  85%, rgba(14, 32,  90, 0.25) 0%, transparent 58%);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.013) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.013) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
