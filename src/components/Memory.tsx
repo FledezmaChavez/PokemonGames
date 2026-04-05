@@ -34,6 +34,7 @@ export default function Memory({ count = 3 }: MemoryProps) {
   const [error, setError] = useState<string | null>(null);
   const [score, setScore] = useState<number>(0);
   const [gen, setGen] = useState<number>(0);
+  const [reset, setReset] = useState<boolean>(false);
 
   const onScoreChange = (newScore: number) => setScore((prev) => prev + newScore);
   const onGenChange = (newGen: number) => setGen(newGen);
@@ -44,6 +45,7 @@ export default function Memory({ count = 3 }: MemoryProps) {
       setLoading(true);
       setError(null);
       setScore(0)
+      setReset(false)
 
 
       try {
@@ -69,11 +71,12 @@ export default function Memory({ count = 3 }: MemoryProps) {
         setError("Failed to load pokemon.");
       } finally {
         setLoading(false);
+        await new Promise((resolve) => setTimeout(resolve, 500));
       }
     }
 
     fetchRandom();
-  }, [count, gen]);
+  }, [count, gen, reset]);
 
 
   const mappedPokemons = useMemo(
@@ -92,6 +95,9 @@ export default function Memory({ count = 3 }: MemoryProps) {
         <GenerationPicker gen={gen} onGenerationChange={onGenChange} />
       </div>
       <MemoryGrid pokemons={mappedPokemons} onScoreChange={onScoreChange} />
+      <button className={styles.resetButton} onClick={() => setReset(true)}>
+        Reset
+      </button>
     </div>
   )
 }
