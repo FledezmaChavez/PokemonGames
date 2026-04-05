@@ -11,3 +11,16 @@ export async function getPokemon(name: string): Promise<Pokemon> {
 
   return response.json();
 }
+
+
+export async function getPokemonsByGeneration(identifier: string | number) : Promise<string[]> {
+  const response = await fetch(`http://localhost:5165/api/pokemon/generation/${identifier}`);
+
+  if (!response.ok) {
+    throw new Error(`Generation "${identifier}" not found.`);
+  }
+
+  return response.json();
+
+ 
+} 

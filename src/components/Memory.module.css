@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.title {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text);
+    font-family: var(--font);
+}
+
+
+.controls {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    background: var(--glass);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.controls > :first-child {
+    flex-shrink: 0;
+}
+
+.controls > :last-child {
+    margin-left: auto;
+}

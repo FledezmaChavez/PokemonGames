@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1.5rem 2rem;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
   background: linear-gradient(135deg, rgba(100, 160, 255, 0.1) 0%, rgba(230, 57, 70, 0.08) 100%);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
+  border-radius: 8px;
   backdrop-filter: blur(10px);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.15),
@@ -16,17 +16,17 @@
 
 .label {
   font-family: var(--mono);
-  font-size: 0.65rem;
+  font-size: 0.55rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0;
 }
 
 .scoreValue {
   font-family: var(--mono);
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   background: linear-gradient(135deg, #64a0ff 0%, #e63946 100%);
